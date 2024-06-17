@@ -10,7 +10,7 @@ public class User {
     private String name;
     private String password;
     private String email;
-    private String address;
+    private Address address;
 
     public String getId() {
         return id;
@@ -44,11 +44,11 @@ public class User {
         this.email = email;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }

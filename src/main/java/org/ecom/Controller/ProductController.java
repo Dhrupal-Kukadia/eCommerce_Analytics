@@ -1,6 +1,7 @@
 package org.ecom.Controller;
 
 import org.ecom.Model.Product;
+import org.ecom.Model.ProductAdditionDTO;
 import org.ecom.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public void addProduct(@RequestBody Product product) {
-        productService.addProduct(product);
+    public void addProduct(@RequestBody ProductAdditionDTO productDTO) {
+        productService.addProduct(productDTO);
     }
 
     @DeleteMapping("/delete/{id}")

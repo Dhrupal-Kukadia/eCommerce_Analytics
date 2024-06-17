@@ -1,7 +1,9 @@
 package org.ecom.Service;
 
 import org.ecom.Model.Product;
+import org.ecom.Model.ProductAdditionDTO;
 import org.ecom.Repository.ProductRepository;
+import org.ecom.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,9 @@ public class ProductService {
         return productRepository.findByName(name);
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(ProductAdditionDTO productDTO) {
+        Utils.validateProductAdditionDTO(productDTO);
+        Product product = productDTO.createProductFromProductDTO();
         productRepository.save(product);
     }
 
