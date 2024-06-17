@@ -1,7 +1,7 @@
 package org.ecom.Controller;
 
 import org.ecom.Model.Product;
-import org.ecom.DTOs.ProductAdditionDTO;
+import org.ecom.DTO.ProductAdditionDTO;
 import org.ecom.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

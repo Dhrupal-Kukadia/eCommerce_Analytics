@@ -1,7 +1,7 @@
 package org.ecom;
 
-import org.ecom.DTOs.ProductAdditionDTO;
-import org.ecom.DTOs.UserRegistrationDTO;
+import org.ecom.DTO.ProductAdditionDTO;
+import org.ecom.DTO.UserRegistrationDTO;
 
 public class Utils {
 

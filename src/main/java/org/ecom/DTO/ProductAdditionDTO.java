@@ -1,4 +1,4 @@
-package org.ecom.DTOs;
+package org.ecom.DTO;
 
 import org.ecom.Model.Product;
 

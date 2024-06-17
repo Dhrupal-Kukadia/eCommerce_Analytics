@@ -1,7 +1,7 @@
 package org.ecom.Service;
 
 import org.ecom.Model.User;
-import org.ecom.DTOs.UserRegistrationDTO;
+import org.ecom.DTO.UserRegistrationDTO;
 import org.ecom.Repository.UserRepository;
 import org.ecom.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
