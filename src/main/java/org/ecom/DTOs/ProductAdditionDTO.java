@@ -1,4 +1,6 @@
-package org.ecom.Model;
+package org.ecom.DTOs;
+
+import org.ecom.Model.Product;
 
 public class ProductAdditionDTO {
     private String name;

@@ -1,4 +1,6 @@
-package org.ecom.Model;
+package org.ecom.DTOs;
+
+import org.ecom.Model.User;
 
 public class UserRegistrationDTO {
     private String name;

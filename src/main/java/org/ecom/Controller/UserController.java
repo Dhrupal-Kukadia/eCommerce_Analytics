@@ -2,7 +2,7 @@ package org.ecom.Controller;
 
 import org.ecom.Model.Cart;
 import org.ecom.Model.User;
-import org.ecom.Model.UserRegistrationDTO;
+import org.ecom.DTOs.UserRegistrationDTO;
 import org.ecom.Service.CartService;
 import org.ecom.Service.OrderService;
 import org.ecom.Service.UserService;
