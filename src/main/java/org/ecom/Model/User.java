@@ -11,6 +11,7 @@ public class User {
     private String password;
     private String email;
     private Address address;
+    private String cartId;
 
     public String getId() {
         return id;
@@ -50,5 +51,13 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
     }
 }

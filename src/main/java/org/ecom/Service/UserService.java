@@ -32,4 +32,8 @@ public class UserService {
     public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
+
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 }
