@@ -1,11 +1,11 @@
-package org.ecom.Controller;
+package org.ecom.Website.Controller;
 
-import org.ecom.Model.Cart;
-import org.ecom.Model.User;
-import org.ecom.DTO.UserRegistrationDTO;
-import org.ecom.Service.CartService;
-import org.ecom.Service.OrderService;
-import org.ecom.Service.UserService;
+import org.ecom.Website.Model.Cart;
+import org.ecom.Website.Model.User;
+import org.ecom.Website.DTO.UserRegistrationDTO;
+import org.ecom.Website.Service.CartService;
+import org.ecom.Website.Service.OrderService;
+import org.ecom.Website.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

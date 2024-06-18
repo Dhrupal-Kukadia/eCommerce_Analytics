@@ -1,4 +1,4 @@
-package org.ecom.Model;
+package org.ecom.Website.Model;
 
 public class Address {
     private String country;

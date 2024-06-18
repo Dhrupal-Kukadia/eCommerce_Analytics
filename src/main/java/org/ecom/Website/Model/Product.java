@@ -1,13 +1,25 @@
-package org.ecom.DTO;
+package org.ecom.Website.Model;
 
-import org.ecom.Model.Product;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class ProductAdditionDTO {
+@Document(collection = "products")
+public class Product {
+    @Id
+    private String id;
     private String name;
     private String desc;
     private String category;
-    private double price;
-    private float rating;
+    private double price = 0;
+    private float rating = 0;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -47,15 +59,5 @@ public class ProductAdditionDTO {
 
     public void setRating(float rating) {
         this.rating = rating;
-    }
-
-    public Product createProductFromProductDTO() {
-        Product product = new Product();
-        product.setName(this.name);
-        product.setDesc(this.desc);
-        product.setCategory(this.category);
-        product.setPrice(this.price);
-        product.setRating(this.rating);
-        return product;
     }
 }

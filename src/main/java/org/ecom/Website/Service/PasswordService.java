@@ -1,4 +1,4 @@
-package org.ecom.Service;
+package org.ecom.Website.Service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

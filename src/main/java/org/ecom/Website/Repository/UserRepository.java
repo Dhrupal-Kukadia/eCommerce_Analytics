@@ -1,6 +1,6 @@
-package org.ecom.Repository;
+package org.ecom.Website.Repository;
 
-import org.ecom.Model.User;
+import org.ecom.Website.Model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {

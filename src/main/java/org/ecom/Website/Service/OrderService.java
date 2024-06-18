@@ -1,11 +1,11 @@
-package org.ecom.Service;
+package org.ecom.Website.Service;
 
-import org.ecom.Model.Cart;
-import org.ecom.Model.Order;
-import org.ecom.Model.Product;
-import org.ecom.Model.User;
-import org.ecom.Repository.OrderRepository;
-import org.ecom.Repository.ProductRepository;
+import org.ecom.Website.Model.Cart;
+import org.ecom.Website.Model.Order;
+import org.ecom.Website.Model.Product;
+import org.ecom.Website.Model.User;
+import org.ecom.Website.Repository.OrderRepository;
+import org.ecom.Website.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
