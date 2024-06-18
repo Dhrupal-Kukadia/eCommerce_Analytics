@@ -1,4 +1,4 @@
-package org.analytics.kafka.config;
+package org.ecom.analytics.kafka.config;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;

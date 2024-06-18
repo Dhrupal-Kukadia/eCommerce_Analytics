@@ -1,4 +1,4 @@
-package org.analytics.log;
+package org.ecom.analytics.log;
 
 public class OrderLog {
     private String id;
