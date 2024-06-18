@@ -2,7 +2,6 @@ package org.ecom.analytics.kafka.producer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
-import org.apache.kafka.common.header.Headers;
 import org.apache.kafka.common.serialization.Serializer;
 import org.ecom.analytics.log.OrderLog;
 
@@ -26,11 +25,6 @@ public class OrderLogSerializer implements Serializer<OrderLog> {
         } catch (Exception e) {
             throw new SerializationException(e);
         }
-    }
-
-    @Override
-    public byte[] serialize(String topic, Headers headers, OrderLog data) {
-        return null;
     }
 
     @Override

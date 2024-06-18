@@ -2,11 +2,9 @@ package org.ecom.analytics.kafka.consumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
-import org.apache.kafka.common.header.Headers;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.ecom.analytics.log.OrderLog;
 
-import java.nio.ByteBuffer;
 import java.util.Map;
 
 public class OrderLogDeserializer implements Deserializer<OrderLog> {
@@ -27,16 +25,6 @@ public class OrderLogDeserializer implements Deserializer<OrderLog> {
         } catch (Exception e) {
             throw new SerializationException(e);
         }
-    }
-
-    @Override
-    public OrderLog deserialize(String topic, Headers headers, byte[] data) {
-        return null;
-    }
-
-    @Override
-    public OrderLog deserialize(String topic, Headers headers, ByteBuffer data) {
-        return null;
     }
 
     @Override

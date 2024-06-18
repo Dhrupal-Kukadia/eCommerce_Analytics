@@ -1,6 +1,7 @@
 package org.ecom.analytics.kafka.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.ecom.analytics.kafka.consumer.OrderLogDeserializer;
 import org.ecom.analytics.kafka.consumer.UserActivityLogDeserializer;
 import org.ecom.analytics.log.OrderLog;
@@ -28,13 +29,13 @@ public class KafkaConsumerConfig {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
-        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, String.class);
+        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, UserActivityLogDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(configs);
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, UserActivityLog> userActivityLogConcurrentKafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, UserActivityLog> userActivityLogKafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, UserActivityLog> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(userActivityLogConsumerFactory());
         return factory;
@@ -45,13 +46,13 @@ public class KafkaConsumerConfig {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
-        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, String.class);
+        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, OrderLogDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(configs);
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, OrderLog> orderLogConcurrentKafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, OrderLog> orderLogKafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, OrderLog> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(orderLogConsumerFactory());
         return factory;

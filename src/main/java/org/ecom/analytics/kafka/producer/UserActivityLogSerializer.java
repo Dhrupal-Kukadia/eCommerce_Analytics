@@ -29,11 +29,6 @@ public class UserActivityLogSerializer implements Serializer<UserActivityLog> {
     }
 
     @Override
-    public byte[] serialize(String topic, Headers headers, UserActivityLog data) {
-        return null;
-    }
-
-    @Override
     public void close() {
         // nothing to close
     }
