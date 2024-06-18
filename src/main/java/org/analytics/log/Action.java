@@ -1,4 +1,4 @@
-package org.analytics;
+package org.analytics.log;
 
 public enum Action {
     VIEWED,

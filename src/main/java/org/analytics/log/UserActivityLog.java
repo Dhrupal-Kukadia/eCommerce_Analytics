@@ -1,7 +1,5 @@
 package org.analytics.log;
 
-import org.analytics.Action;
-
 public class UserActivityLog {
     private String id;
     private String userId;

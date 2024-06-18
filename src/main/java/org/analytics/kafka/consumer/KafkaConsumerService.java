@@ -1,6 +1,6 @@
 package org.analytics.kafka.consumer;
 
-import org.analytics.es.ElasticSearchRepository;
+import org.analytics.es.ElasticSearchService;
 import org.analytics.log.OrderLog;
 import org.analytics.log.UserActivityLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumerService {
     @Autowired
-    private ElasticSearchRepository esSearchRepository;
+    private ElasticSearchService esSearchService;
 
     @KafkaListener(topics = "user_activity", groupId = "group_id")
     public void consumeUserActivity(UserActivityLog userActivityLog) {
