@@ -19,7 +19,14 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/{id}")
+    public Product getProduct(@PathVariable String id){
+        final Product product = productService.getProductById(id);
+
+        return product;
+    }
+
+    @GetMapping("/name/{name}")
     public Product getProductByName(@PathVariable String name) {
         return productService.getProductByName(name);
     }

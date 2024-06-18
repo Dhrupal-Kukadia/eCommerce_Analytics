@@ -18,6 +18,10 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Product getProductById(String id) {
+        return productRepository.findById(id).orElse(null);
+    }
+
     public Product getProductByName(String name) {
         return productRepository.findByName(name);
     }
