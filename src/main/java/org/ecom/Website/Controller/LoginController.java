@@ -17,11 +17,11 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping("/authenticate")
-    public ResponseEntity<String> authenticateUser(@RequestBody AuthDTO authDTO){
-        final String userId =authDTO.getUserId();
-        final String password=authDTO.getPassword();
-        boolean success = loginService.authenticateUser(userId,password);
-        if(success){
+    public ResponseEntity<String> authenticateUser(@RequestBody AuthDTO authDTO) {
+        final String userId = authDTO.getUserId();
+        final String password = authDTO.getPassword();
+        boolean success = loginService.authenticateUser(userId, password);
+        if (success) {
             //set userContext
             return ResponseEntity.status(HttpStatus.OK).body("Login Successful!");
         } else {
