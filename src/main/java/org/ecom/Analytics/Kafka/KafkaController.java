@@ -1,10 +1,10 @@
-package org.ecom.Analytics.kafka;
+package org.ecom.Analytics.Kafka;
 
-import org.ecom.Analytics.log.OrderLog;
-import org.ecom.Analytics.log.UserActivityLog;
+import org.ecom.Analytics.Log.OrderLog;
+import org.ecom.Analytics.Log.UserActivityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.ecom.Analytics.kafka.producer.KafkaProducerService;
+import org.ecom.Analytics.Kafka.Producer.KafkaProducerService;
 
 @RestController
 @RequestMapping("/analytics/kafka")

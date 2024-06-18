@@ -1,13 +1,13 @@
-package org.ecom.Analytics.kafka.consumer;
+package org.ecom.Analytics.Kafka.Consumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
-import org.ecom.Analytics.log.OrderLog;
+import org.ecom.Analytics.Log.UserActivityLog;
 
 import java.util.Map;
 
-public class OrderLogDeserializer implements Deserializer<OrderLog> {
+public class UserActivityLogDeserializer implements Deserializer<UserActivityLog> {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
@@ -16,12 +16,12 @@ public class OrderLogDeserializer implements Deserializer<OrderLog> {
     }
 
     @Override
-    public OrderLog deserialize(String topic, byte[] bytes) {
+    public UserActivityLog deserialize(String topic, byte[] bytes) {
         try {
             if (bytes == null || bytes.length == 0) {
                 return null;
             }
-            return objectMapper.readValue(bytes, OrderLog.class);
+            return objectMapper.readValue(bytes, UserActivityLog.class);
         } catch (Exception e) {
             throw new SerializationException(e);
         }
