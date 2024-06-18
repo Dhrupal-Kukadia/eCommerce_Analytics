@@ -1,11 +1,11 @@
-package org.ecom.analytics.kafka.config;
+package org.ecom.Analytics.kafka.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.ecom.analytics.kafka.consumer.OrderLogDeserializer;
-import org.ecom.analytics.kafka.consumer.UserActivityLogDeserializer;
-import org.ecom.analytics.log.OrderLog;
-import org.ecom.analytics.log.UserActivityLog;
+import org.ecom.Analytics.kafka.consumer.OrderLogDeserializer;
+import org.ecom.Analytics.kafka.consumer.UserActivityLogDeserializer;
+import org.ecom.Analytics.log.OrderLog;
+import org.ecom.Analytics.log.UserActivityLog;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

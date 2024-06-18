@@ -1,4 +1,4 @@
-package org.ecom.analytics.log;
+package org.ecom.Analytics.log;
 
 public class UserActivityLog {
     private String id;

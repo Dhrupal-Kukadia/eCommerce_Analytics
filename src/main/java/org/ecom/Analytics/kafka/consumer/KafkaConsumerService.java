@@ -1,8 +1,8 @@
-package org.ecom.analytics.kafka.consumer;
+package org.ecom.Analytics.kafka.consumer;
 
-import org.ecom.analytics.es.ElasticSearchService;
-import org.ecom.analytics.log.OrderLog;
-import org.ecom.analytics.log.UserActivityLog;
+import org.ecom.Analytics.es.ElasticSearchService;
+import org.ecom.Analytics.log.OrderLog;
+import org.ecom.Analytics.log.UserActivityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;

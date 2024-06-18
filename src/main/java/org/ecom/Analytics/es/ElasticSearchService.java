@@ -1,4 +1,4 @@
-package org.ecom.analytics.es;
+package org.ecom.Analytics.es;
 
 import org.springframework.stereotype.Service;
 

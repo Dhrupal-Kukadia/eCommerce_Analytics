@@ -1,9 +1,9 @@
-package org.ecom.analytics.kafka.consumer;
+package org.ecom.Analytics.kafka.consumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
-import org.ecom.analytics.log.OrderLog;
+import org.ecom.Analytics.log.OrderLog;
 
 import java.util.Map;
 

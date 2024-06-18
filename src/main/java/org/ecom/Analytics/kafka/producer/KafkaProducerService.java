@@ -1,7 +1,7 @@
-package org.ecom.analytics.kafka.producer;
+package org.ecom.Analytics.kafka.producer;
 
-import org.ecom.analytics.log.OrderLog;
-import org.ecom.analytics.log.UserActivityLog;
+import org.ecom.Analytics.log.OrderLog;
+import org.ecom.Analytics.log.UserActivityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
