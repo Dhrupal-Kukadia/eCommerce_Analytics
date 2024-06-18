@@ -12,7 +12,6 @@ public class LoginService {
     @Autowired
     private PasswordService passwordService;
 
-    @PostMapping("/authenticate")
     public Boolean authenticateUser(String userId, String password){
         final User user=userService.getUserById(userId);
         final String hashedPassword=user.getPassword();
