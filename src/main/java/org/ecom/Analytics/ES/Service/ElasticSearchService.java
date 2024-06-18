@@ -15,12 +15,10 @@ public class ElasticSearchService {
     private OrderLogRepository orderLogRepository;
 
     public void saveUserActivityLog(UserActivityLog userActivityLog) {
-        System.out.println("Saving user activity log in es");
         userActivityLogRepository.save(userActivityLog);
     }
 
     public void saveOrderLog(OrderLog orderLog) {
-        System.out.println("Saving order log in es");
         orderLogRepository.save(orderLog);
     }
 }
