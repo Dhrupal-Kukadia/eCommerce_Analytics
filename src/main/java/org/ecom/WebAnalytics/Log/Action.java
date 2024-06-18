@@ -1,4 +1,4 @@
-package org.ecom.Analytics.Log;
+package org.ecom.WebAnalytics.Log;
 
 public enum Action {
     VIEWED,

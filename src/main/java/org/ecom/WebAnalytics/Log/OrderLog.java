@@ -1,15 +1,14 @@
-package org.ecom.Analytics.Log;
+package org.ecom.WebAnalytics.Log;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-@Document(indexName = "user_activity_log")
-public class UserActivityLog {
+@Document(indexName = "order_log")
+public class OrderLog {
     @Id
     private String id;
     private String userId;
-    private String productId;
-    private Action action;
+    private String orderId;
 
     public String getId() {
         return id;
@@ -27,19 +26,11 @@ public class UserActivityLog {
         this.userId = userId;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public Action getAction() {
-        return action;
-    }
-
-    public void setAction(Action action) {
-        this.action = action;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 }

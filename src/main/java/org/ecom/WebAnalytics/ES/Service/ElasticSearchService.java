@@ -1,9 +1,9 @@
-package org.ecom.Analytics.ES.Service;
+package org.ecom.WebAnalytics.ES.Service;
 
-import org.ecom.Analytics.ES.Repository.OrderLogRepository;
-import org.ecom.Analytics.ES.Repository.UserActivityLogRepository;
-import org.ecom.Analytics.Log.OrderLog;
-import org.ecom.Analytics.Log.UserActivityLog;
+import org.ecom.WebAnalytics.ES.Repository.OrderLogRepository;
+import org.ecom.WebAnalytics.ES.Repository.UserActivityLogRepository;
+import org.ecom.WebAnalytics.Log.OrderLog;
+import org.ecom.WebAnalytics.Log.UserActivityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +21,6 @@ public class ElasticSearchService {
     public void saveOrderLog(OrderLog orderLog) {
         orderLogRepository.save(orderLog);
     }
+
+
 }

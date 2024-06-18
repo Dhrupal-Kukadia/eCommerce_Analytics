@@ -1,6 +1,6 @@
-package org.ecom.Analytics.ES.Repository;
+package org.ecom.WebAnalytics.ES.Repository;
 
-import org.ecom.Analytics.Log.UserActivityLog;
+import org.ecom.WebAnalytics.Log.UserActivityLog;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
