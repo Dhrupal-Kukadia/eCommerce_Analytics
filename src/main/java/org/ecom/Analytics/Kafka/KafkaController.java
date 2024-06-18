@@ -12,11 +12,6 @@ public class KafkaController {
     @Autowired
     private KafkaProducerService kafkaProducerService;
 
-    @GetMapping("/ping")
-    public String hello() {
-        return "Pong";
-    }
-
     @PostMapping("/publish/user_activity_log")
     public void publishUserActivity(@RequestBody UserActivityLog userActivityLog) {
         kafkaProducerService.publishUserActivity(userActivityLog);
