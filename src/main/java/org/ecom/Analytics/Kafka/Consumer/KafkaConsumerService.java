@@ -1,6 +1,6 @@
 package org.ecom.Analytics.Kafka.Consumer;
 
-import org.ecom.Analytics.ES.ElasticSearchService;
+import org.ecom.Analytics.ES.Service.ElasticSearchService;
 import org.ecom.Analytics.Log.OrderLog;
 import org.ecom.Analytics.Log.UserActivityLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +15,11 @@ public class KafkaConsumerService {
 
     @KafkaListener(topics = "user_activity_topic", groupId = "group_id", containerFactory = "userActivityLogKafkaListenerContainerFactory")
     public void consumeUserActivity(@Payload UserActivityLog userActivityLog) {
-        System.out.println("Saving user activity " + userActivityLog + " to elasticsearch");
+        esSearchService.saveUserActivityLog(userActivityLog);
     }
 
     @KafkaListener(topics = "order_topic", groupId = "group_id", containerFactory = "orderLogKafkaListenerContainerFactory")
     public void consumeOrder(@Payload OrderLog orderLog) {
-        System.out.println("Saving order log " + orderLog + " to elasticsearch");
+        esSearchService.saveOrderLog(orderLog);
     }
 }

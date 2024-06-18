@@ -1,6 +1,11 @@
 package org.ecom.Analytics.Log;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+
+@Document(indexName = "user_activity_log")
 public class UserActivityLog {
+    @Id
     private String id;
     private String userId;
     private String productId;
