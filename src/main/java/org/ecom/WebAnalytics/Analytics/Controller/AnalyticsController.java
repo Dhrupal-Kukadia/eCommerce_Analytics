@@ -34,16 +34,12 @@ public class AnalyticsController {
     }
 
     @GetMapping("/total_order")
-    public Long getTotalOrder(@RequestParam Long sinceTime, @RequestParam Long untilTime) {
-        sinceTime = sinceTime == null ? System.currentTimeMillis() - 5 : sinceTime;
-        untilTime = untilTime == null ? System.currentTimeMillis() : untilTime;
-        return analyticsService.getTotalOrder(sinceTime, untilTime);
+    public Long getTotalOrder() {
+        return analyticsService.getTotalOrder();
     }
 
     @GetMapping("/total_sales")
-    public Double getTotalSales(@RequestParam Long sinceTime, @RequestParam Long untilTime) {
-        sinceTime = sinceTime == null ? System.currentTimeMillis() - 5 : sinceTime;
-        untilTime = untilTime == null ? System.currentTimeMillis() : untilTime;
-        return analyticsService.getTotalSales(sinceTime, untilTime);
+    public Double getTotalSales() {
+        return analyticsService.getTotalSales();
     }
 }

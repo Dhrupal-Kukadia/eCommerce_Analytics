@@ -18,13 +18,14 @@ public class OrderService {
     @Autowired
     private ProductRepository productRepository;
 
-    public void order(User user, Cart cart) {
+    public String order(User user, Cart cart) {
         Order order = new Order();
         order.setUserId(user.getId());
         order.setProductIds(cart.getProductIds());
         totalOrderAmount(order);
         order.setTimestamp(System.currentTimeMillis());
-        orderRepository.save(order);
+        order = orderRepository.save(order);
+        return order.getId();
     }
 
     private void totalOrderAmount(Order order) {

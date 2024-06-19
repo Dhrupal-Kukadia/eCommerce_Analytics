@@ -69,12 +69,12 @@ public class AnalyticsService {
         return getByLocationMostBoughtProduct(locationToUser);
     }
 
-    public Long getTotalOrder(Long sinceTime, Long untilTime) {
-        return orderRepository.countByTimestampBetween(sinceTime, untilTime);
+    public Long getTotalOrder() {
+        return orderRepository.count();
     }
 
-    public double getTotalSales(Long sinceTime, Long untilTime) {
-        Iterable<Order> orders = orderRepository.findByTimestampBetween(sinceTime, untilTime);
+    public double getTotalSales() {
+        Iterable<Order> orders = orderRepository.findAll();
         double sales = 0;
         for (Order order : orders) {
             sales += order.getTotal();

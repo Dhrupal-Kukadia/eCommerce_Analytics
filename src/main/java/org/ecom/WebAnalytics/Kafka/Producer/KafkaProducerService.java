@@ -19,12 +19,10 @@ public class KafkaProducerService {
     private KafkaTemplate<String, OrderLog> orderLogKafkaTemplate;
 
     public void publishUserActivity(UserActivityLog userActivityLog) {
-        System.out.println("Sending user activity log " + userActivityLog + " to kafka");
         userActivityLogKafkaTemplate.send(userActivityTopic, userActivityLog);
     }
 
     public void publishOrder(OrderLog orderLog) {
-        System.out.println("Sending order log " + orderLog + " to kafka");
         orderLogKafkaTemplate.send(orderTopic, orderLog);
     }
 }
