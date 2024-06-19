@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "ffb6baa0-89ba-491d-bebf-7926afa35051",
+		"name": "Analytics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36225995",
+		"_collection_link": "https://ecommerceanalytics.postman.co/workspace/eCommerce_Analytics-Workspace~973524df-62f0-4f24-a8db-2e095c65020b/collection/33514139-ffb6baa0-89ba-491d-bebf-7926afa35051?action=share&source=collection_link&creator=36225995"
+	},
+	"item": [
+		{
+			"name": "es",
+			"item": [
+				{
+					"name": "Check ES live",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search order log documents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200/order_log/_search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"order_log",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Most bought product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/web_analytics/analytics/most_bought_product",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"web_analytics",
+								"analytics",
+								"most_bought_product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/web_analytics/analytics/total_sales",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"web_analytics",
+								"analytics",
+								"total_sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/web_analytics/analytics/total_order",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"web_analytics",
+								"analytics",
+								"total_order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
