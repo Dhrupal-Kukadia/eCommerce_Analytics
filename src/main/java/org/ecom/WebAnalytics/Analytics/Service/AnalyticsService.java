@@ -46,33 +46,9 @@ public class AnalyticsService {
     }
 
     public Map<String, Product> getMostViewedProductByLocation(String locationType) {
-        Map<String, Product> result = new HashMap<>();
         Iterable<UserActivityLog> logs = userActivityLogRepository.findAll();
-        Map<String, Map<String, Long>> locationToProduct = new HashMap<>();
-
-        logs.forEach(log -> {
-            if (log.getAction().equals(Action.VIEWED)) {
-                User user = userRepository.findById(log.getUserId()).orElse(null);
-                if (user != null) {
-                    String userLocation = switch (locationType) {
-                        case "country" -> user.getAddress().getCountry();
-                        case "state" -> user.getAddress().getState();
-                        case "city" -> user.getAddress().getCity();
-                        default -> "";
-                    };
-                    Map<String, Long> productViewCount = locationToProduct.computeIfAbsent(userLocation, k -> new HashMap<>());
-                    productViewCount.put(log.getProductId(), productViewCount.getOrDefault(log.getProductId(), 0L) + 1);
-                }
-            }
-        });
-
-        locationToProduct.forEach((location, productViewCount) -> {
-            String productId = productViewCount.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
-            Product product = productId == null ? null : productRepository.findById(productId).orElse(null);
-            if (product != null) {
-                result.put(location, product);
-            }
-        });
+        Map<String, Map<String, Long>> locationToProduct = getLocationToProductMapping(logs, locationType);
+        Map<String, Product> result = getByLocationMostViewedProduct(locationToProduct);
         return result;
     }
 
@@ -89,10 +65,48 @@ public class AnalyticsService {
     }
 
     public Map<String, Product> getMostBoughtProductByLocation(String locationType) {
-        Map<String, Product> result = new HashMap<>();
         Iterable<OrderLog> logs = orderLogRepository.findAll();
-        Map<String, List<String>> locationToUser = new HashMap<>();
+        Map<String, List<String>> locationToUser = getLocationToUserMapping(logs, locationType);
+        Map<String, Product> result = getByLocationMostBoughtProduct(locationToUser);
+        return result;
+    }
 
+    public Long getTotalOrder(Long sinceTime, Long untilTime) {
+        return orderRepository.countByTimestampBetween(sinceTime, untilTime);
+    }
+
+    public double getTotalSales(Long sinceTime, Long untilTime) {
+        Iterable<Order> orders = orderRepository.findByTimestampBetween(sinceTime, untilTime);
+        double sales = 0;
+        for (Order order : orders) {
+            sales += order.getTotal();
+        }
+        return sales;
+    }
+
+    // <----------------------------------------------- PRIVATE METHODS --------------------------------------------------------->
+    private Map<String, Map<String, Long>> getLocationToProductMapping(Iterable<UserActivityLog> logs, String locationType) {
+        Map<String, Map<String, Long>> locationToProduct = new HashMap<>();
+        logs.forEach(log -> {
+            if (log.getAction().equals(Action.VIEWED)) {
+                User user = userRepository.findById(log.getUserId()).orElse(null);
+                if (user != null) {
+                    String userLocation = switch (locationType) {
+                        case "country" -> user.getAddress().getCountry();
+                        case "state" -> user.getAddress().getState();
+                        case "city" -> user.getAddress().getCity();
+                        default -> "";
+                    };
+                    Map<String, Long> productViewCount = locationToProduct.computeIfAbsent(userLocation, k -> new HashMap<>());
+                    productViewCount.put(log.getProductId(), productViewCount.getOrDefault(log.getProductId(), 0L) + 1);
+                }
+            }
+        });
+        return locationToProduct;
+    }
+
+    private Map<String, List<String>> getLocationToUserMapping(Iterable<OrderLog> logs, String locationType) {
+        Map<String, List<String>> locationToUser = new HashMap<>();
         logs.forEach(log -> {
             Order order = orderRepository.findById(log.getOrderId()).orElse(null);
             if (order != null) {
@@ -108,7 +122,23 @@ public class AnalyticsService {
                 }
             }
         });
+        return locationToUser;
+    }
 
+    private Map<String, Product> getByLocationMostViewedProduct(Map<String, Map<String, Long>> locationToProduct) {
+        Map<String, Product> result = new HashMap<>();
+        locationToProduct.forEach((location, productViewCount) -> {
+            String productId = productViewCount.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
+            Product product = productId == null ? null : productRepository.findById(productId).orElse(null);
+            if (product != null) {
+                result.put(location, product);
+            }
+        });
+        return result;
+    }
+
+    private Map<String, Product> getByLocationMostBoughtProduct(Map<String, List<String>> locationToUser) {
+        Map<String, Product> result = new HashMap<>();
         locationToUser.forEach((location, userIds) -> {
             Map<String, Long> productOrderCount = new HashMap<>();
             userIds.forEach(userId -> {
@@ -129,18 +159,5 @@ public class AnalyticsService {
             }
         });
         return result;
-    }
-
-    public Long getTotalOrder(Long sinceTime, Long untilTime) {
-        return orderRepository.countByTimestampBetween(sinceTime, untilTime);
-    }
-
-    public double getTotalSales(Long sinceTime, Long untilTime) {
-        Iterable<Order> orders = orderRepository.findByTimestampBetween(sinceTime, untilTime);
-        double sales = 0;
-        for (Order order : orders) {
-            sales += order.getTotal();
-        }
-        return sales;
     }
 }

@@ -20,7 +20,7 @@ public class AnalyticsController {
 
     @GetMapping("/most_viewed_product/{location}")
     public Map<String, Product> getMostViewedProduct(@PathVariable String location) {
-        return analyticsService.getMostBoughtProductByLocation(location);
+        return analyticsService.getMostViewedProductByLocation(location);
     }
 
     @GetMapping("/most_bought_product")
