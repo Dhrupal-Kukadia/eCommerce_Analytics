@@ -3,7 +3,7 @@ package org.ecom.Website.Service;
 import org.ecom.Website.Model.User;
 import org.ecom.Website.DTO.UserRegistrationDTO;
 import org.ecom.Website.Repository.UserRepository;
-import org.ecom.Website.Utils;
+import org.ecom.Website.Utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

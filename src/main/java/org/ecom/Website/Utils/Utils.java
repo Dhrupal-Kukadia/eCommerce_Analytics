@@ -1,4 +1,4 @@
-package org.ecom.Website;
+package org.ecom.Website.Utils;
 
 import org.ecom.Website.DTO.ProductAdditionDTO;
 import org.ecom.Website.DTO.UserRegistrationDTO;

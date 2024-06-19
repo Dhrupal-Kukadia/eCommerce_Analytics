@@ -3,7 +3,7 @@ package org.ecom.Website.Service;
 import org.ecom.Website.Model.Product;
 import org.ecom.Website.DTO.ProductAdditionDTO;
 import org.ecom.Website.Repository.ProductRepository;
-import org.ecom.Website.Utils;
+import org.ecom.Website.Utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
