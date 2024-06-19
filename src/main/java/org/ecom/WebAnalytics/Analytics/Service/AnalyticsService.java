@@ -48,8 +48,7 @@ public class AnalyticsService {
     public Map<String, Product> getMostViewedProductByLocation(String locationType) {
         Iterable<UserActivityLog> logs = userActivityLogRepository.findAll();
         Map<String, Map<String, Long>> locationToProduct = getLocationToProductMapping(logs, locationType);
-        Map<String, Product> result = getByLocationMostViewedProduct(locationToProduct);
-        return result;
+        return getByLocationMostViewedProduct(locationToProduct);
     }
 
     public Product getMostBoughtProduct() {
@@ -67,8 +66,7 @@ public class AnalyticsService {
     public Map<String, Product> getMostBoughtProductByLocation(String locationType) {
         Iterable<OrderLog> logs = orderLogRepository.findAll();
         Map<String, List<String>> locationToUser = getLocationToUserMapping(logs, locationType);
-        Map<String, Product> result = getByLocationMostBoughtProduct(locationToUser);
-        return result;
+        return getByLocationMostBoughtProduct(locationToUser);
     }
 
     public Long getTotalOrder(Long sinceTime, Long untilTime) {
